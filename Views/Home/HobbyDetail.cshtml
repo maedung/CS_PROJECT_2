@@ -1,0 +1,48 @@
+@model Hobby
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Hobbies</h1>
+    <h3>Description:</h3>
+    <p>@Model.description</p>
+
+    <h3>Hiking Enthusiasts</h3>
+    <div class="enthusiasts">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Proficiency</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach(var i in Model.Hobbylist)
+            {
+                <tr>
+                    <td scope="row">@i.User.firstname</td>
+                    <td scope="row">@i.proficiency</td>
+                </tr>
+            }
+        </tbody>
+        </table>
+    </div>
+
+    <a href="/Edit/@Model.id">Edit Hobby</a>
+
+    <form asp-action="JoinHobby" asp-controller="Home" method="post">
+        <span asp-validation-for="name"></span>
+        <h3>Become an Enthusiast!</h3>
+        <input type="hidden" name="userid" value="@ViewBag.thisuser.id">
+        <input type="hidden" name="hobbyid" value ="@Model.id">
+        <select name="proficiency">
+            <option value="Novice">Novice</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Expert">Expert</option>
+        </select>
+        <input type="submit" value="Add to Hobbies">
+    </form>
+
+</div>

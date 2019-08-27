@@ -1,0 +1,28 @@
+@model Hobby
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Hobbies</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Enthusiasts</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var i in @ViewBag.allhobby)
+            {
+                <tr>
+                    <td scope="row"><a href="/Hobby/@i.id">@i.name</a></td>
+                    <td scope="row">@i.Hobbylist.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Hobby/New">Create a Hobby</a>
+</div>
+

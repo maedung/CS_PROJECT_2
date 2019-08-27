@@ -1,0 +1,56 @@
+@model User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="partials">
+    <div class="register">
+        <h1>Register</h1>
+        <form asp-action="Register" asp-contoller="Home" method="post">
+            <span asp-validation-for="firstname"></span>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" asp-for="firstname">First Name </label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="firstname">
+                </div>
+            </div>
+
+            <span asp-validation-for="lastname"></span>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" asp-for="lastname">Last Name </label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="lastname">
+                </div>
+            </div>
+
+            <span asp-validation-for="username"></span>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" asp-for="username">Username </label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="username">
+                </div>
+            </div>
+
+            <span asp-validation-for="password"></span>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" asp-for="password">Password </label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="password">
+                </div>
+            </div>
+
+            <span asp-validation-for="confirm"></span>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" asp-for="confirm">Confirm PW </label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="confirm">
+                </div>
+            </div>
+            
+            <br>
+            <input type="submit" value="Sign up Now">
+
+        </form>
+    </div>
+</div>
